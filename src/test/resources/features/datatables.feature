@@ -41,7 +41,7 @@ Feature: Examples for DataTable
       | System             |
 
 
-  @wip
+
   Scenario: Login with given information
     Given user is on the login page
     When user enters below credentials
@@ -81,7 +81,7 @@ Feature: Examples for DataTable
 
     #Map<String,List<String,String>>
 
-  @MapOfList
+
   Scenario: Verify students name in discord
     Then User should be able to see following names in their groups
       | Group1 | Gulay Turgut | Shina                 | Ziba               |

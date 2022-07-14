@@ -1,17 +1,22 @@
 package com.cydeo.steps;
 
 import com.cydeo.pages.AdidasPage;
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
 import java.util.Map;
 
 public class AdidasStepDefs {
     AdidasPage adidasPage=new AdidasPage();
+
+
     @Given("User is on the HomePage")
     public void user_is_on_the_home_page() {
 
@@ -19,8 +24,26 @@ public class AdidasStepDefs {
 
 
     }
+
+    @Then("Under {string} category User should be able to see the list of following products")
+    public void under_category_user_should_be_able_to_see_the_list_of_following_products(String category, List<String> expectedProducts) {
+
+        adidasPage.clickCategory(category);
+
+        List<WebElement> productsElements = adidasPage.products;
+
+        List<String> actualProductList = BrowserUtils.getElementsText(productsElements);
+        System.out.println("actualList = " + actualProductList);
+        System.out.println("productsElements = " + expectedProducts);
+
+        Assert.assertEquals(expectedProducts, actualProductList);
+
+    }
+
+
     @Then("User should be able to see expected prices in following products")
     public void user_should_be_able_to_see_expected_prices_in_following_products(List<Map<String,String>> productDetails) {
+        System.out.println(productDetails);
 
         for (Map<String, String> productDetail : productDetails) {
 
@@ -51,7 +74,7 @@ public class AdidasStepDefs {
     @Then("User should be able to see expected prices in following products with listOflist")
     public void user_should_be_able_to_see_expected_prices_in_following_products_with_list_oflist(List<List<String>> productDetails) {
 
-
+        System.out.println(productDetails);
         for (List<String> productDetail : productDetails) {
             System.out.println(" ======== Product Details ======== ");
             System.out.println(productDetail.get(0));  //  Category
