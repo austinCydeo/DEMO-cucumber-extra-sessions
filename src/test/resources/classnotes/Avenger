@@ -1,0 +1,53 @@
+  ---productListVerification feature file
+
+
+  ---how can i run it through maven? (maven + parallel)
+           to run thru maven i need one thing -> surefire plugin (enables maven feature and parallel testing)
+
+        7.2.3 versiyon değiştir
+
+        //run from maven-> it tyries to run it parallelly but driver class is not eligible.
+        //run from cukes runner -> runs it in sequence
+
+        update Driver class
+
+        For paralle test execution i need 2 things -> sure fire plugin + proper Driver class (with InheratbeLocalThread class)
+
+        Run from cukes runner -> ask how many browser is gonna be opened?
+
+        mvn test -> how many browsers?  why 2 ?
+
+        ***even if u have eligible Driver class and have necessary plugin in pom.xml , unless u trigger the code from maven u can not achieve parallel testing!!!
+
+        --delete cukesRunner tag and run from maven (it overrides the cukesRunner, no matter which tag is located there)
+
+  ---Edit Run configurations dont type mvn and double quotes
+
+
+  ---Add cucumber pretty REPORT
+        we need 2 things to have this report
+        1-me.jvt plugin
+        2-modify cukes runner to generate report folder
+
+        run from cukesRunner or mvn doesnt matter it generates report
+
+        for local executions these 2 is enough
+        for jenkins cucumber plugin we will need 1 more thing .json file
+
+
+  ---push it into github (önce commit ve push yap)
+         show that it is public and use that repo
+
+        /*manage remotes deyip bağı kes
+        share project on github
+        change visibility to public*/
+
+        jenkins create project and build
+
+        cucumber report olmayacak
+
+        intellij e dön json file ekle push yap
+
+        tekrar jenkinsten build ve raporu gör
+
+
