@@ -21,7 +21,7 @@ Feature: Simple examples about Scenario Outline
       | store_manager |
 
 
-  @scenarioOutline
+
   Scenario Outline: Login with given information for <user>
     Given user is on the login page
     When user enters below credentials
