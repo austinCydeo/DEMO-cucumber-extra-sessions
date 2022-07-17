@@ -1,6 +1,6 @@
 Feature:Product List Verification
 
-  @smoke
+  @regression
 Scenario: Verify all the products exist in the products pages
 Given User is on the HomePage
 Then Under "Phones" category User should be able to see the list of following products
